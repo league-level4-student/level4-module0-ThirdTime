@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 public class PixelArtMaker implements MouseListener{
 	private JFrame window;
 	private GridInputPanel gip;
-	private GridPanel gp;
-	ColorSelectionPanel csp;
+	private GridPanel gridPanel;
+	ColorSelectionPanel colorSelectionPanel;
 	
 	public void start() {
 		gip = new GridInputPanel(this);	
@@ -25,13 +25,13 @@ public class PixelArtMaker implements MouseListener{
 	}
 
 	public void submitGridData(int w, int h, int r, int c) {
-		gp = new GridPanel(w, h, r, c);
-		csp = new ColorSelectionPanel();
+		gridPanel = new GridPanel(w, h, r, c);
+		colorSelectionPanel = new ColorSelectionPanel();
 		window.remove(gip);
-		window.add(gp);
-		window.add(csp);
-		gp.repaint();
-		gp.addMouseListener(this);
+		window.add(gridPanel);
+		window.add(colorSelectionPanel);
+		gridPanel.repaint();
+		gridPanel.addMouseListener(this);
 		window.pack();
 	}
 	
@@ -45,10 +45,10 @@ public class PixelArtMaker implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		gp.setColor(csp.getSelectedColor());
-		System.out.println(csp.getSelectedColor());
-		gp.clickPixel(e.getX(), e.getY());
-		gp.repaint();
+		gridPanel.setColor(colorSelectionPanel.getSelectedColor());
+		//System.out.println(csp.getSelectedColor());
+		gridPanel.clickPixel(e.getX(), e.getY());
+		gridPanel.repaint();
 	}
 
 	@Override
