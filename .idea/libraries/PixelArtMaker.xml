@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PixelArtMaker">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/_02_Pixel_Art/PixelArtMaker.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

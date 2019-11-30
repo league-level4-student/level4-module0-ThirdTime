@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ConwaysGameOfLife">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/_03_Conways_Game_of_Life/ConwaysGameOfLife.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

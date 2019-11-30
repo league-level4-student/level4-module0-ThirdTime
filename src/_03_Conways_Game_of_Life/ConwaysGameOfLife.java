@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 
 public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	public static final int CELLS_PER_ROW = 50;
-	
+
 	private JFrame window;
 	private JPanel inputPanel;
 	private JButton startStopButton;
@@ -25,21 +25,22 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	private JButton clearButton;
 	private JLabel speedLabel;
 	private JTextField speedField;
-	
+
 	private WorldPanel gamePanel;
-	
+
 	public static void main(String[] args) {
 		new ConwaysGameOfLife().launchGame();
 	}
-	
+
 	public void launchGame() {
-		//build the window and start the simulation
-		//setPreferredSize(new Dimension(WIDTH, HEIGHT));
+//build the window and start the simulation
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setLayout(new BorderLayout());
-		
+
+
 		window = new JFrame("Conway's Game Of Life");
 		window.add(this);
-		
+
 		inputPanel = new JPanel();
 		startStopButton = new JButton("START");
 		startStopButton.addActionListener(this);
@@ -50,7 +51,7 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		speedLabel = new JLabel("delay:");
 		speedField = new JTextField(5);
 		speedField.setText(Integer.toString(60));
-		
+
 		inputPanel.add(startStopButton);
 		inputPanel.add(speedLabel);
 		inputPanel.add(speedField);
@@ -60,7 +61,6 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 
 		gamePanel = new WorldPanel(WIDTH, HEIGHT, CELLS_PER_ROW);
 		add(gamePanel, BorderLayout.CENTER);
-		
 		window.pack();
 		window.setResizable(false);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,3 +95,4 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		}
 	}
 }
+
