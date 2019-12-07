@@ -86,8 +86,8 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	@Override
 	public void paintComponent(Graphics g) {
 //6. Iterate through the cells and draw them all
-		for(int i = 0; i < cellArr.length-1; i++) {
-			for(int j = 0; j < cellArr[i].length-1; j++) {
+		for(int i = 0; i < cellArr.length; i++) {
+			for(int j = 0; j < cellArr[i].length; j++) {
 				cellArr[i][j].draw(g);
 			}
 		}
@@ -110,7 +110,6 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 //8. check if each cell should live or die
 		for(int row = 0; row< cellArr.length; row++) {
 			for(int column = 0; column< cellArr.length; column++) {
-				System.out.println(cellArr[row][column].isAlive);
 				cellArr[row][column].liveOrDie(getLivingNeighbors(row, column));
 			}
 		}
@@ -126,21 +125,16 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 //   cell identified by x and y
 	public int getLivingNeighbors(int x, int y){
 		int totalNumNeighbors = 0;
-		for(int i = x-1; i < x+1; i++) {
+		for(int i = x-1; i <= x+1; i++) {
 			for (int j = y - 1; j <= y + 1; j++) {
-				if (j > 0 && i > 0 && i < cellArr.length && j < cellArr[0].length) {
-					System.out.println(cellArr[i][j].isAlive);
+				if (j > -1 && i > -1 && i < cellArr.length && j < cellArr[0].length && !(i==x && j==y)) {
 					if (cellArr[i][j].isAlive) {
 						totalNumNeighbors = totalNumNeighbors + 1;
 					}
 				}
 			}
 		}
-		//if(cellArr[x][y].isAlive){
-	//		totalNumNeighbors -= 1;
-		//}
 		return totalNumNeighbors;
-
 	}
 
 	@Override
