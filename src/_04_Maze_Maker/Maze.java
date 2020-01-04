@@ -31,7 +31,7 @@ public class Maze {
 
 		for(int i = 0; i < cellArr.length; i++) {
 
-			for(int j = 0; j < cellArr.length; j++) {
+			for(int j = 0; j < cellArr[0].length; j++) {
 
 				cellArr[i][j] = new Cell(i,j);
 
@@ -52,7 +52,7 @@ public class Maze {
 
 		for(int i = 0; i < cellArr.length; i++) {
 
-			for(int j = 0; j < cellArr.length; j++) {
+			for(int j = 0; j < cellArr[0].length; j++) {
 
 				cellArr[i][j].draw(g);
 
